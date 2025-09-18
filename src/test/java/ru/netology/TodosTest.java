@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TodosTest {
     SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
-    String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
+    String[] subtasks = {"Молоко", "Яйца", "Хлеб","Позвонить родителям"};
     Epic epic = new Epic(55, subtasks);
 
     Meeting meeting = new Meeting(
@@ -50,5 +50,12 @@ class TodosTest {
 
 
         Assertions.assertArrayEquals(expected, todos.search("Выкатка 4й версии приложения"));
+    }
+    @Test
+    public void shouldSearchMultipleTasks(){
+        Task[] expected = {simpleTask,epic};
+
+
+        Assertions.assertArrayEquals(expected, todos.search("Позвонить родителям"));
     }
 }
