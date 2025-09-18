@@ -44,4 +44,11 @@ class TodosTest {
 
         Assertions.assertArrayEquals(expected, todos.search("Выкатка 3й версии приложения"));
     }
+    @Test
+    public void shouldNotSearchTasks() {
+        Task[] expected = new Task[0];
+
+
+        Assertions.assertArrayEquals(expected, todos.search("Выкатка 4й версии приложения"));
+    }
 }
